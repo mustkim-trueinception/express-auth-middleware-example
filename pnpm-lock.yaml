@@ -14,6 +14,12 @@ importers:
       argon2:
         specifier: ^0.31.2
         version: 0.31.2
+      bcrypt:
+        specifier: ^5.1.1
+        version: 5.1.1
+      bcryptjs:
+        specifier: ^2.4.3
+        version: 2.4.3
       dotenv:
         specifier: ^16.3.1
         version: 16.3.1
@@ -38,7 +44,7 @@ importers:
         version: 4.14.202
       clean-webpack-plugin:
         specifier: ^4.0.0
-        version: 4.0.0(webpack@5.89.0)
+        version: 4.0.0(webpack@5.89.0(webpack-cli@5.1.4))
       nodemon:
         specifier: ^3.0.2
         version: 3.0.2
@@ -47,7 +53,7 @@ importers:
         version: 4.1.5
       ts-loader:
         specifier: ^9.5.1
-        version: 9.5.1(typescript@5.3.3)(webpack@5.89.0)
+        version: 9.5.1(typescript@5.3.3)(webpack@5.89.0(webpack-cli@5.1.4))
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -324,6 +330,13 @@ packages:
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  bcrypt@5.1.1:
+    resolution: {integrity: sha512-AGBHOG5hPYZ5Xl9KXzU5iKq9516yEmvCKDg3ecP5kX2aB6UqTeXZxk2ELnDgDm6BQSMlLt9rDB4LoSMx0rYwww==}
+    engines: {node: '>= 10.0.0'}
+
+  bcryptjs@2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
 
   binary-extensions@2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -1042,6 +1055,9 @@ packages:
 
   nice-try@1.0.5:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}
+
+  node-addon-api@5.1.0:
+    resolution: {integrity: sha512-eh0GgfEkpnoWDq+VY8OyvYhFEzBk6jIYbRKdIlyTiAXIVJ8PyBaKb0rp7oDtoddbdoHWhq8wwr+XZ81F1rpNdA==}
 
   node-addon-api@7.0.0:
     resolution: {integrity: sha512-vgbBJTS4m5/KkE16t5Ly0WW9hz46swAstv0hYYwMtbG7AznRhNyfLRe8HZAiWIpcHzoO7HxhLuBQj9rJ/Ho0ZA==}
@@ -1835,17 +1851,17 @@ snapshots:
       '@webassemblyjs/ast': 1.11.6
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4)(webpack@5.89.0)':
+  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4(webpack@5.89.0))(webpack@5.89.0(webpack-cli@5.1.4))':
     dependencies:
       webpack: 5.89.0(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack@5.89.0)
 
-  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4)(webpack@5.89.0)':
+  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4(webpack@5.89.0))(webpack@5.89.0(webpack-cli@5.1.4))':
     dependencies:
       webpack: 5.89.0(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack@5.89.0)
 
-  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack@5.89.0)':
+  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4(webpack@5.89.0))(webpack@5.89.0(webpack-cli@5.1.4))':
     dependencies:
       webpack: 5.89.0(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack@5.89.0)
@@ -1942,6 +1958,16 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
+  bcrypt@5.1.1:
+    dependencies:
+      '@mapbox/node-pre-gyp': 1.0.11
+      node-addon-api: 5.1.0
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
+
+  bcryptjs@2.4.3: {}
+
   binary-extensions@2.2.0: {}
 
   body-parser@1.20.1:
@@ -2020,7 +2046,7 @@ snapshots:
 
   chrome-trace-event@1.0.3: {}
 
-  clean-webpack-plugin@4.0.0(webpack@5.89.0):
+  clean-webpack-plugin@4.0.0(webpack@5.89.0(webpack-cli@5.1.4)):
     dependencies:
       del: 4.1.1
       webpack: 5.89.0(webpack-cli@5.1.4)
@@ -2086,6 +2112,7 @@ snapshots:
   debug@4.3.4(supports-color@5.5.0):
     dependencies:
       ms: 2.1.2
+    optionalDependencies:
       supports-color: 5.5.0
 
   define-data-property@1.1.1:
@@ -2702,6 +2729,8 @@ snapshots:
 
   nice-try@1.0.5: {}
 
+  node-addon-api@5.1.0: {}
+
   node-addon-api@7.0.0: {}
 
   node-fetch@2.7.0:
@@ -3116,7 +3145,7 @@ snapshots:
       mkdirp: 1.0.4
       yallist: 4.0.0
 
-  terser-webpack-plugin@5.3.10(webpack@5.89.0):
+  terser-webpack-plugin@5.3.10(webpack@5.89.0(webpack-cli@5.1.4)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.20
       jest-worker: 27.5.1
@@ -3148,7 +3177,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  ts-loader@9.5.1(typescript@5.3.3)(webpack@5.89.0):
+  ts-loader@9.5.1(typescript@5.3.3)(webpack@5.89.0(webpack-cli@5.1.4)):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.15.0
@@ -3238,9 +3267,9 @@ snapshots:
   webpack-cli@5.1.4(webpack@5.89.0):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4)(webpack@5.89.0)
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4)(webpack@5.89.0)
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4)(webpack@5.89.0)
+      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4(webpack@5.89.0))(webpack@5.89.0(webpack-cli@5.1.4))
+      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4(webpack@5.89.0))(webpack@5.89.0(webpack-cli@5.1.4))
+      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4(webpack@5.89.0))(webpack@5.89.0(webpack-cli@5.1.4))
       colorette: 2.0.20
       commander: 10.0.1
       cross-spawn: 7.0.3
@@ -3285,10 +3314,11 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(webpack@5.89.0)
+      terser-webpack-plugin: 5.3.10(webpack@5.89.0(webpack-cli@5.1.4))
       watchpack: 2.4.0
-      webpack-cli: 5.1.4(webpack@5.89.0)
       webpack-sources: 3.2.3
+    optionalDependencies:
+      webpack-cli: 5.1.4(webpack@5.89.0)
     transitivePeerDependencies:
       - '@swc/core'
       - esbuild
